@@ -7,6 +7,7 @@ namespace DataExporter
     public class ExporterDbContext : DbContext
     {
         public DbSet<Policy> Policies { get; set; }
+        public DbSet<Note> Notes { get; set; }
 
         public ExporterDbContext(DbContextOptions<ExporterDbContext> options) : base(options)
         { 
@@ -21,10 +22,10 @@ namespace DataExporter
         {
 
             // one- to - many relationship between Policy and Notes
-            modelBuilder.Entity<Policy>()
-                .HasMany<Note>()
-                .WithOne()
-                .HasForeignKey(i => i.PolicyId);
+            modelBuilder.Entity<Note>()
+                .HasOne(n => n.Policy)
+                .WithMany(p => p.Notes)
+                .HasForeignKey(n => n.PolicyId);
 
             modelBuilder.Entity<Policy>().HasData(
                 new Policy() { Id = 1, PolicyNumber = "HSCX1001", Premium = 200, StartDate = new DateTime(2024, 4, 1) },

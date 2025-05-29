@@ -1,0 +1,145 @@
+{
+  "info": {
+    "name": "DataExporter - Happy Path",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get All Policies",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "DE-API-Version",
+            "value": "1.0",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://localhost:7246/api/v1/policies",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7246",
+          "path": [
+            "api",
+            "v1",
+            "policies"
+          ]
+        },
+        "body": null
+      },
+      "response": []
+    },
+    {
+      "name": "Get Policy by Id",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "DE-API-Version",
+            "value": "1.0",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://localhost:7246/api/v1/policies/1",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7246",
+          "path": [
+            "api",
+            "v1",
+            "policies",
+            "1"
+          ]
+        },
+        "body": null
+      },
+      "response": []
+    },
+    {
+      "name": "Create New Policy",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "DE-API-Version",
+            "value": "1.0",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://localhost:7246/api/v1/policies",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7246",
+          "path": [
+            "api",
+            "v1",
+            "policies"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"policyNumber\": \"HSCX2001\",\n  \"premium\": 1001.99,\n  \"startDate\": \"2025-05-05\"\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Export Policies in date range",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "DE-API-Version",
+            "value": "1.0",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://localhost:7246/api/v1/policies/export?startDate=2024-03-03&endDate=2024-04-02",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7246",
+          "path": [
+            "api",
+            "v1",
+            "policies",
+            "export?startDate=2024-03-03&endDate=2024-04-02"
+          ]
+        },
+        "body": null
+      },
+      "response": []
+    }
+  ]
+}

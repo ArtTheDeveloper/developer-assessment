@@ -1,0 +1,134 @@
+{
+  "info": {
+    "name": "DataExporter - Error Cases",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Get Nonexistent Policy",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "DE-API-Version",
+            "value": "1.0",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://localhost:7246/api/v1/policies/9999",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7246",
+          "path": [
+            "api",
+            "v1",
+            "policies",
+            "9999"
+          ]
+        },
+        "body": null
+      },
+      "response": []
+    },
+    {
+      "name": "Create Invalid Policy (missing fields)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "DE-API-Version",
+            "value": "1.0",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://localhost:7246/api/v1/policies",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7246",
+          "path": [
+            "api",
+            "v1",
+            "policies"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"premium\": 10\n}"
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Export with Invalid date range",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "DE-API-Version",
+            "value": "1.0",
+            "type": "text"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://localhost:7246/api/v1/policies/export?startDate=2024-01-01&endDate=2023-01-01",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7246",
+          "path": [
+            "api",
+            "v1",
+            "policies",
+            "export?startDate=2024-01-01&endDate=2023-01-01"
+          ]
+        },
+        "body": null
+      },
+      "response": []
+    },
+    {
+      "name": "Missing Version Header",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://localhost:7246/api/v1/policies",
+          "protocol": "https",
+          "host": [
+            "localhost"
+          ],
+          "port": "7246",
+          "path": [
+            "api",
+            "v1",
+            "policies"
+          ]
+        },
+        "body": null
+      },
+      "response": []
+    }
+  ]
+}
